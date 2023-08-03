@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">market</string>
+    <string name="txt_search_here">Search Here</string>
 </resources>
