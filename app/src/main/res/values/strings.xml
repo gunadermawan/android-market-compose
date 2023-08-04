@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">market</string>
     <string name="txt_search_here">Search Here</string>
+    <string name="txt_category_electronic">Electronic</string>
+    <string name="txt_category_smartphone">Smartphone</string>
+    <string name="txt_category_food">Food</string>
+    <string name="txt_category_laptop">Laptop</string>
+    <string name="txt_category_camera">Camera</string>
+    <string name="txt_category_life_style">Life Style</string>
+    <string name="txt_category_automotive">Automotive</string>
+    <string name="txt_category_discount">Discount</string>
+    <string name="txt_category_for_you">For You</string>
+    <string name="txt_category_sport">Sport</string>
 </resources>
