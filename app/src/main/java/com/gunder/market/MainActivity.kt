@@ -4,11 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -18,9 +23,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.gunder.market.model.dummyListCategory
 import com.gunder.market.ui.components.DrawCircle
+import com.gunder.market.ui.components.MainCategory
 import com.gunder.market.ui.components.SearchBar
 import com.gunder.market.ui.theme.MarketTheme
 
@@ -85,11 +93,36 @@ fun ProductCategoryPreview() {
 }
 
 @Composable
-fun MarketApp() {
-
+fun CategoryItem(modifier: Modifier = Modifier) {
+    LazyRow(
+        modifier = modifier.padding(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(dummyListCategory, key = { it.txtCategory }) {
+            MainCategory(it)
+        }
+    }
 }
 
 @Preview
+@Composable
+fun CategoryItemPrev() {
+    MarketTheme {
+        CategoryItem()
+
+    }
+}
+
+
+@Composable
+fun MarketApp() {
+    Column {
+        TopBanner()
+        CategoryItem()
+    }
+}
+
+@Preview(device = Devices.PIXEL_3_XL, showBackground = true)
 @Composable
 fun MarketAppPreview() {
     MarketTheme {

@@ -17,4 +17,4 @@ val dummyListCategory = listOf(
     R.drawable.ic_favorite to R.string.txt_category_for_you,
     R.drawable.ic_food to R.string.txt_category_food,
     R.drawable.ic_computer to R.string.txt_category_laptop
-)
+).map { ListCategory(it.first, it.second) }

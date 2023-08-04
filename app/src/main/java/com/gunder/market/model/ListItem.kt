@@ -11,3 +11,5 @@ val dummyItem = listOf(
     ListItem(R.drawable.ic_electronic, "Electronic", "Rp. 5000.000"),
     ListItem(R.drawable.ic_smartphone, "Smartphone", "Rp. 5000.000")
 )
+
+val dummyBestSeller = dummyItem.shuffled()

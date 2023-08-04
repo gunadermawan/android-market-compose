@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -18,16 +19,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gunder.market.R
+import com.gunder.market.model.ListCategory
 import com.gunder.market.model.ListItem
 import com.gunder.market.ui.theme.MarketTheme
 
 @Composable
-fun MainCategory(item: ListItem, modifier: Modifier = Modifier) {
+fun MainCategory(listCategory: ListCategory, modifier: Modifier = Modifier) {
     Box {
         Card(
             modifier
@@ -42,21 +46,21 @@ fun MainCategory(item: ListItem, modifier: Modifier = Modifier) {
                     contentScale = ContentScale.Crop,
                     modifier = modifier
                         .fillMaxWidth()
-                        .height(120.dp)
+                        .height(100.dp)
                         .clip(RoundedCornerShape(8.dp))
                 )
                 Column(
                     modifier = modifier
-
-                        .align(Alignment.CenterHorizontally)
+                        .align(Alignment.CenterHorizontally),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = item.title,
+                        text = stringResource(listCategory.txtCategory),
+                        textAlign = TextAlign.Center,
                         maxLines = 2,
                         overflow = TextOverflow.Clip,
                         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.ExtraBold)
                     )
-                    Text(text = item.price, style = MaterialTheme.typography.titleSmall)
                 }
             }
         }
@@ -68,7 +72,7 @@ fun MainCategory(item: ListItem, modifier: Modifier = Modifier) {
 fun MainCategoryPreview() {
     MarketTheme {
         MainCategory(
-            item = ListItem(R.drawable.ic_computer, "Laptop MSI", "Rp. 12.000.000"),
+            listCategory = ListCategory(R.drawable.ic_computer, R.string.txt_category_laptop),
             modifier = Modifier.padding(8.dp)
         )
     }
