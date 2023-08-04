@@ -1,12 +1,14 @@
 package com.gunder.market.ui.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -17,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -35,33 +38,29 @@ fun MainCategory(listCategory: ListCategory, modifier: Modifier = Modifier) {
     Box {
         Card(
             modifier
-                .width(140.dp),
+                .width(120.dp),
             shape = RoundedCornerShape(8.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
+            colors = CardDefaults.cardColors(containerColor = Color.LightGray)
         ) {
-            Column {
+            Column(modifier = modifier) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_computer),
+                    painter = painterResource(listCategory.imgCategory),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop,
+                    contentScale = ContentScale.FillHeight,
                     modifier = modifier
                         .fillMaxWidth()
-                        .height(100.dp)
+                        .size(60.dp)
+                        .padding(8.dp)
                         .clip(RoundedCornerShape(8.dp))
                 )
-                Column(
+                Text(
+                    text = stringResource(listCategory.txtCategory),
+                    overflow = TextOverflow.Clip,
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.ExtraBold),
                     modifier = modifier
-                        .align(Alignment.CenterHorizontally),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = stringResource(listCategory.txtCategory),
-                        textAlign = TextAlign.Center,
-                        maxLines = 2,
-                        overflow = TextOverflow.Clip,
-                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.ExtraBold)
-                    )
-                }
+                        .paddingFromBaseline(bottom = 16.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
             }
         }
     }

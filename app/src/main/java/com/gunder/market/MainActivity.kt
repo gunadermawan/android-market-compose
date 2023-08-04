@@ -27,6 +27,8 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gunder.market.model.dummyListCategory
+import com.gunder.market.model.dummyListDiscount
+import com.gunder.market.ui.components.CardDiscount
 import com.gunder.market.ui.components.DrawCircle
 import com.gunder.market.ui.components.MainCategory
 import com.gunder.market.ui.components.SearchBar
@@ -109,16 +111,36 @@ fun CategoryItem(modifier: Modifier = Modifier) {
 fun CategoryItemPrev() {
     MarketTheme {
         CategoryItem()
+    }
+}
 
+@Composable
+fun DiscountBanner(modifier: Modifier = Modifier) {
+    LazyRow(
+        modifier = modifier.padding(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(dummyListDiscount, key = { it.txtDiscount }) {
+            CardDiscount(it)
+        }
     }
 }
 
 
+@Preview
 @Composable
-fun MarketApp() {
-    Column {
+fun DiscountBannerPreview() {
+    MarketTheme {
+        DiscountBanner()
+    }
+}
+
+@Composable
+fun MarketApp(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
         TopBanner()
         CategoryItem()
+        DiscountBanner()
     }
 }
 
