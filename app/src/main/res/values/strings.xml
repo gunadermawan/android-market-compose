@@ -14,4 +14,5 @@
     <string name="txt_dummy_discount_10">10%</string>
     <string name="txt_dummy_discount_20">20%</string>
     <string name="txt_dummy_discount_30">30%</string>
+    <string name="txt_promo_tokopedia">promo</string>
 </resources>

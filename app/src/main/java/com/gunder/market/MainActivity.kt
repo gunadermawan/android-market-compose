@@ -3,12 +3,10 @@ package com.gunder.market
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
@@ -21,7 +19,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.gunder.market.model.dummyListCategory
 import com.gunder.market.model.dummyListDiscount
 import com.gunder.market.model.dummyListSpecialOffer
+import com.gunder.market.ui.components.CardBanner
 import com.gunder.market.ui.components.CardDiscount
 import com.gunder.market.ui.components.CardSpecialOffer
 import com.gunder.market.ui.components.DrawCircle
@@ -56,12 +54,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TopBanner(modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
-        Image(
-            painter = painterResource(R.drawable.banner),
-            contentDescription = "Banner Top Image",
-            contentScale = ContentScale.FillWidth,
-            modifier = Modifier.height(160.dp)
-        )
         SearchBar()
     }
 }
@@ -102,7 +94,7 @@ fun CategoryItem(modifier: Modifier = Modifier) {
         modifier = modifier.padding(16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        items(dummyListCategory, key = { it.txtCategory }) {
+        items(dummyListCategory) { it ->
             MainCategory(it)
         }
     }
@@ -117,13 +109,26 @@ fun CategoryItemPrev() {
 }
 
 @Composable
+fun MainBanner() {
+    CardBanner()
+}
+
+@Preview
+@Composable
+fun MainBannerPreview() {
+    MarketTheme {
+        MainBanner()
+    }
+}
+
+@Composable
 fun DiscountBanner(modifier: Modifier = Modifier) {
     LazyRow(
         modifier = modifier.padding(16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        items(dummyListDiscount, key = { it.txtDiscount }) {
-            CardDiscount(it)
+        items(dummyListDiscount) { item ->
+            CardDiscount(item)
         }
     }
 }
@@ -163,6 +168,7 @@ fun MarketApp(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         TopBanner()
         CategoryItem()
+        MainBanner()
         DiscountBanner()
         SpecialOffer()
     }

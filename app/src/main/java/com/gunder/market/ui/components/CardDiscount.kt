@@ -32,7 +32,7 @@ fun CardDiscount(listDiscount: ListDiscount, modifier: Modifier = Modifier) {
             .widthIn(120.dp)
             .heightIn(60.dp),
         shape = RoundedCornerShape(8.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.Gray)
+        colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Row(
             modifier = modifier

@@ -1,9 +1,7 @@
 package com.gunder.market.ui.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
@@ -43,7 +41,6 @@ fun CardSpecialOffer(listSpecialOffer: ListSpecialOffer, modifier: Modifier = Mo
                     .fillMaxWidth()
                     .size(60.dp)
                     .padding(8.dp)
-                    .border(2.dp, Color.Gray)
                     .clip(RoundedCornerShape(8.dp))
             )
             Text(
