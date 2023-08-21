@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -37,8 +36,11 @@ import com.gunder.market.ui.theme.MarketTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchBar(modifier: Modifier = Modifier) {
-    Column(modifier = modifier.padding(start = 8.dp, end = 16.dp)) {
+fun MainTopBar(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .padding(start = 8.dp, end = 16.dp)
+    ) {
         Row {
             OutlinedTextField(
                 value = "",
@@ -110,7 +112,6 @@ fun SearchBar(modifier: Modifier = Modifier) {
                 contentDescription = null,
                 modifier = modifier
                     .size(24.dp)
-                    .paddingFromBaseline(bottom = 8.dp)
             )
         }
     }
@@ -121,6 +122,6 @@ fun SearchBar(modifier: Modifier = Modifier) {
 @Composable
 fun SearchBarPreview() {
     MarketTheme {
-        SearchBar()
+        MainTopBar()
     }
 }

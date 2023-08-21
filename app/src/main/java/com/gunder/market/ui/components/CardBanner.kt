@@ -13,20 +13,21 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gunder.market.R
+import com.gunder.market.model.ListBanner
 import com.gunder.market.ui.theme.MarketTheme
 
 @Composable
-fun CardBanner(modifier: Modifier = Modifier) {
+fun CardBanner(listBanner: ListBanner, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .widthIn(200.dp)
-            .padding(16.dp)
+            .padding(start = 16.dp, end = 8.dp)
             .heightIn(48.dp),
         shape = RoundedCornerShape(8.dp),
         colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.White)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.banner1),
+            painter = painterResource(id = listBanner.imgBanner),
             contentDescription = null
         )
     }
@@ -36,6 +37,6 @@ fun CardBanner(modifier: Modifier = Modifier) {
 @Composable
 fun CardBannerPreview() {
     MarketTheme {
-        CardBanner()
+        CardBanner(listBanner = ListBanner(R.drawable.banner1))
     }
 }

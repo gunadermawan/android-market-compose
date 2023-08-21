@@ -23,15 +23,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.gunder.market.model.dummyListCategory
+import com.gunder.market.model.dummyListBanner
+import com.gunder.market.model.dummyListBottomCategory
 import com.gunder.market.model.dummyListDiscount
-import com.gunder.market.model.dummyListSpecialOffer
+import com.gunder.market.model.dummyListTopBar
+import com.gunder.market.model.dummyListTopCategory
 import com.gunder.market.ui.components.CardBanner
 import com.gunder.market.ui.components.CardDiscount
 import com.gunder.market.ui.components.CardSpecialOffer
 import com.gunder.market.ui.components.DrawCircle
-import com.gunder.market.ui.components.MainCategory
-import com.gunder.market.ui.components.SearchBar
+import com.gunder.market.ui.components.ListBottomCategory
+import com.gunder.market.ui.components.ListTopBar
+import com.gunder.market.ui.components.ListTopCategory
+import com.gunder.market.ui.components.MainTopBar
 import com.gunder.market.ui.theme.MarketTheme
 
 class MainActivity : ComponentActivity() {
@@ -54,7 +58,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TopBanner(modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
-        SearchBar()
+        MainTopBar()
     }
 }
 
@@ -94,23 +98,72 @@ fun CategoryItem(modifier: Modifier = Modifier) {
         modifier = modifier.padding(16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        items(dummyListCategory) { it ->
-            MainCategory(it)
+        items(dummyListTopCategory) {
+            ListTopCategory(it)
+        }
+    }
+}
+
+@Composable
+fun CategoryBottomItem(modifier: Modifier = Modifier) {
+    LazyRow(
+        modifier = modifier.padding(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(dummyListBottomCategory) {
+            ListBottomCategory(it)
         }
     }
 }
 
 @Preview
 @Composable
-fun CategoryItemPrev() {
+fun CategoryItemPreview() {
     MarketTheme {
         CategoryItem()
     }
 }
 
 @Composable
-fun MainBanner() {
-    CardBanner()
+fun ListTopBar(modifier: Modifier = Modifier) {
+    LazyRow(
+        modifier = modifier
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(dummyListTopBar) {
+            ListTopBar(it)
+        }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun TopBarPreview() {
+    MarketTheme {
+        Box {
+            ListTopBar()
+        }
+    }
+}
+
+@Preview
+@Composable
+fun CategoryBottomItemPreview() {
+    MarketTheme {
+        CategoryBottomItem()
+    }
+}
+
+
+@Composable
+fun MainBanner(modifier: Modifier = Modifier) {
+    LazyRow(modifier = modifier.padding(8.dp)) {
+        items(dummyListBanner) {
+            CardBanner(listBanner = it)
+        }
+    }
 }
 
 @Preview
@@ -144,15 +197,7 @@ fun DiscountBannerPreview() {
 
 @Composable
 fun SpecialOffer(modifier: Modifier = Modifier) {
-    LazyRow(
-        modifier = modifier.padding(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-        items(dummyListSpecialOffer, key = { it.title }) {
-            CardSpecialOffer(listSpecialOffer = it)
-        }
-
-    }
+    CardSpecialOffer(modifier = modifier)
 }
 
 @Preview
@@ -167,9 +212,10 @@ fun SpecialOfferPreview() {
 fun MarketApp(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         TopBanner()
+        ListTopBar()
         CategoryItem()
         MainBanner()
-        DiscountBanner()
+        CategoryBottomItem()
         SpecialOffer()
     }
 }
