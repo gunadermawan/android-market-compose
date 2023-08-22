@@ -28,13 +28,13 @@ fun CardSpecialOffer(modifier: Modifier = Modifier) {
         modifier = Modifier
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceBetween
+        verticalArrangement = Arrangement.SpaceAround
     ) {
         Row {
             Card(
                 modifier = modifier
                     .width(IntrinsicSize.Max)
-                    .padding(16.dp)
+                    .padding(bottom = 8.dp, top = 8.dp)
                     .height(IntrinsicSize.Max),
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Green)
@@ -47,7 +47,7 @@ fun CardSpecialOffer(modifier: Modifier = Modifier) {
             Card(
                 modifier = modifier
                     .width(IntrinsicSize.Max)
-                    .padding(16.dp)
+                    .padding(bottom = 8.dp, top = 8.dp, start = 16.dp)
                     .height(IntrinsicSize.Max),
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Green)
@@ -62,7 +62,7 @@ fun CardSpecialOffer(modifier: Modifier = Modifier) {
             Card(
                 modifier = modifier
                     .width(IntrinsicSize.Max)
-                    .padding(16.dp)
+                    .padding(bottom = 8.dp, top = 8.dp, start = 4.dp)
                     .height(IntrinsicSize.Max),
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Green)
@@ -75,7 +75,7 @@ fun CardSpecialOffer(modifier: Modifier = Modifier) {
             Card(
                 modifier = modifier
                     .width(IntrinsicSize.Max)
-                    .padding(16.dp)
+                    .padding(bottom = 8.dp, top = 8.dp, start = 16.dp)
                     .height(IntrinsicSize.Max),
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Green)

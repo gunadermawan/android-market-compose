@@ -23,4 +23,9 @@
     <string name="txt_subscription">Langganan, yuk!</string>
     <string name="txt_rewards">Silver</string>
     <string name="txt_dummy_rewards">100 Poin</string>
+    <string name="txt_desc_first_banner">First Banner</string>
+    <string name="txt_desc_second_banner">Second Banner</string>
+    <string name="txt_desc_third_banner">Third Banner</string>
+    <string name="txt_desc_fourth_banner">Fourth Banner</string>
+    <string name="txt_desc_five_banner">Five Banner</string>
 </resources>

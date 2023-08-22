@@ -25,11 +25,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gunder.market.model.dummyListBanner
 import com.gunder.market.model.dummyListBottomCategory
+import com.gunder.market.model.dummyListCardForYou
 import com.gunder.market.model.dummyListDiscount
 import com.gunder.market.model.dummyListTopBar
 import com.gunder.market.model.dummyListTopCategory
 import com.gunder.market.ui.components.CardBanner
 import com.gunder.market.ui.components.CardDiscount
+import com.gunder.market.ui.components.CardSpecialForYou
 import com.gunder.market.ui.components.CardSpecialOffer
 import com.gunder.market.ui.components.DrawCircle
 import com.gunder.market.ui.components.ListBottomCategory
@@ -209,6 +211,26 @@ fun SpecialOfferPreview() {
 }
 
 @Composable
+fun CardSpecial(modifier: Modifier = Modifier) {
+    LazyRow(
+        modifier = modifier.padding(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(dummyListCardForYou) {
+            CardSpecialForYou(it)
+        }
+    }
+}
+
+@Preview
+@Composable
+fun CardSpecialYouPreview() {
+    MarketTheme {
+        CardSpecial()
+    }
+}
+
+@Composable
 fun MarketApp(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         TopBanner()
@@ -217,6 +239,7 @@ fun MarketApp(modifier: Modifier = Modifier) {
         MainBanner()
         CategoryBottomItem()
         SpecialOffer()
+        CardSpecial()
     }
 }
 
