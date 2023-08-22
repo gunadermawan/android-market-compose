@@ -196,8 +196,8 @@ fun DiscountBannerPreview() {
 }
 
 @Composable
-fun SpecialOffer(modifier: Modifier = Modifier) {
-    CardSpecialOffer(modifier = modifier)
+fun SpecialOffer() {
+    CardSpecialOffer()
 }
 
 @Preview
