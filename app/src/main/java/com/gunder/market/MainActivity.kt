@@ -28,6 +28,7 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -250,7 +251,7 @@ fun CardSpecialYouPreview() {
 
 @Composable
 fun BottomBar(modifier: Modifier = Modifier) {
-    NavigationBar(modifier = modifier) {
+    NavigationBar(modifier = modifier, containerColor = Color.White) {
         val navigationItems = listOf(
             BottomBarItem(title = stringResource(R.string.txt_home), icon = Icons.Outlined.Home),
             BottomBarItem(
@@ -274,6 +275,7 @@ fun BottomBar(modifier: Modifier = Modifier) {
             NavigationBarItem(
                 selected = it.title == navigationItems[0].title,
                 onClick = { },
+                label = { Text(it.title) },
                 icon = { Icon(imageVector = it.icon, contentDescription = it.title) })
         }
     }
