@@ -1,6 +1,10 @@
 package com.gunder.market.ui.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
@@ -14,10 +18,16 @@ import com.gunder.market.ui.theme.MarketTheme
 
 @Composable
 fun CardSpecialForYou(listCardForYou: ListCardForYou, modifier: Modifier = Modifier) {
-    Card(modifier = modifier, RoundedCornerShape(8.dp)) {
+    Card(
+        modifier = modifier
+            .width(IntrinsicSize.Max)
+            .height(IntrinsicSize.Max),
+        RoundedCornerShape(8.dp)
+    ) {
         Image(
             painter = painterResource(id = listCardForYou.imgCard),
-            contentDescription = listCardForYou.txtDesc.toString()
+            contentDescription = listCardForYou.txtDesc.toString(),
+            modifier = modifier.heightIn(min = 180.dp)
         )
     }
 }
