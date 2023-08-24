@@ -54,18 +54,11 @@ fun MainTopBar(modifier: Modifier = Modifier) {
                         contentDescription = null
                     )
                 },
-                colors = TextFieldDefaults.textFieldColors(
-                    containerColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent,
-                    focusedIndicatorColor = Color.Transparent,
-                    unfocusedIndicatorColor = Color.Transparent
-                ),
                 placeholder = { Text(stringResource(R.string.txt_search_here), fontSize = 14.sp) },
                 modifier = Modifier
                     .padding(16.dp)
                     .widthIn(min = 200.dp)
                     .height(48.dp)
-                    .border(1.dp, Color.Gray, shape = RoundedCornerShape(8.dp)),
 
                 )
             Spacer(modifier = modifier.size(4.dp))
