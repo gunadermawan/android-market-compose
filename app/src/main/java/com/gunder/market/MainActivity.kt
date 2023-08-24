@@ -38,6 +38,7 @@ fun MarketApp(modifier: Modifier = Modifier) {
         modifier = modifier
             .verticalScroll(rememberScrollState())
     ) {
+//        your code compose here
     }
 
 }
