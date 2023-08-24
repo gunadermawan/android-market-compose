@@ -2,12 +2,14 @@ package com.gunder.market.ui.components
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -40,6 +42,7 @@ fun MainTopBar(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .padding(start = 8.dp, end = 16.dp)
+            .width(IntrinsicSize.Min)
     ) {
         Row {
             OutlinedTextField(
@@ -60,7 +63,7 @@ fun MainTopBar(modifier: Modifier = Modifier) {
                 placeholder = { Text(stringResource(R.string.txt_search_here), fontSize = 14.sp) },
                 modifier = Modifier
                     .padding(16.dp)
-                    .requiredWidth(200.dp)
+                    .widthIn(min = 200.dp)
                     .height(48.dp)
                     .border(1.dp, Color.Gray, shape = RoundedCornerShape(8.dp)),
 

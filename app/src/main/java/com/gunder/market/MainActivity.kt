@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -33,7 +33,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,14 +41,11 @@ import com.gunder.market.model.BottomBarItem
 import com.gunder.market.model.dummyListBanner
 import com.gunder.market.model.dummyListBottomCategory
 import com.gunder.market.model.dummyListCardForYou
-import com.gunder.market.model.dummyListDiscount
 import com.gunder.market.model.dummyListTopBar
 import com.gunder.market.model.dummyListTopCategory
 import com.gunder.market.ui.components.CardBanner
-import com.gunder.market.ui.components.CardDiscount
 import com.gunder.market.ui.components.CardSpecialForYou
 import com.gunder.market.ui.components.CardSpecialOffer
-import com.gunder.market.ui.components.DrawCircle
 import com.gunder.market.ui.components.ListBottomCategory
 import com.gunder.market.ui.components.ListTopBar
 import com.gunder.market.ui.components.ListTopCategory
@@ -64,8 +60,11 @@ class MainActivity : ComponentActivity() {
             MarketTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .wrapContentHeight(Alignment.CenterVertically)
+                        .wrapContentWidth(Alignment.CenterHorizontally),
+                    color = MaterialTheme.colorScheme.background,
                 ) {
                     MarketApp()
                 }
@@ -89,27 +88,6 @@ fun TopBannerPreview() {
     }
 }
 
-@Composable
-fun ProductCategory(modifier: Modifier = Modifier) {
-    Box(modifier = modifier.requiredSize(120.dp), contentAlignment = Alignment.Center) {
-        DrawCircle()
-        Icon(
-            painter = painterResource(R.drawable.ic_computer),
-            contentDescription = null,
-            modifier = modifier
-                .size(40.dp),
-            tint = Color.DarkGray
-        )
-    }
-}
-
-@Preview
-@Composable
-fun ProductCategoryPreview() {
-    MarketTheme {
-        ProductCategory()
-    }
-}
 
 @Composable
 fun CategoryItem(modifier: Modifier = Modifier) {
@@ -193,26 +171,6 @@ fun MainBannerPreview() {
     }
 }
 
-@Composable
-fun DiscountBanner(modifier: Modifier = Modifier) {
-    LazyRow(
-        modifier = modifier.padding(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-        items(dummyListDiscount) { item ->
-            CardDiscount(item)
-        }
-    }
-}
-
-
-@Preview
-@Composable
-fun DiscountBannerPreview() {
-    MarketTheme {
-        DiscountBanner()
-    }
-}
 
 @Composable
 fun SpecialOffer() {
