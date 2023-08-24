@@ -36,4 +36,6 @@
     <string name="txt_notification">Notifikasi</string>
     <string name="txt_wishlist">Wishlist</string>
     <string name="txt_profile">Profile</string>
+    <string name="txt_dummy_address">Dikirim ke alamat</string>
+    <string name="txt_dummy_username">Guna Dermawan</string>
 </resources>
