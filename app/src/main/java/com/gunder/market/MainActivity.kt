@@ -113,7 +113,7 @@ fun CategoryBottomItem(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun CategoryItemPreview() {
     MarketTheme {
@@ -145,7 +145,7 @@ fun TopBarPreview() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun CategoryBottomItemPreview() {
     MarketTheme {
@@ -163,7 +163,7 @@ fun MainBanner(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun MainBannerPreview() {
     MarketTheme {
@@ -177,7 +177,7 @@ fun SpecialOffer() {
     CardSpecialOffer()
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun SpecialOfferPreview() {
     MarketTheme {
@@ -199,7 +199,7 @@ fun CardSpecial(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun CardSpecialYouPreview() {
     MarketTheme {
