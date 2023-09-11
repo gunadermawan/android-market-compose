@@ -15,8 +15,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import com.gunder.market.component.MainBottomCategory
+import com.gunder.market.component.MainCardCategory
 import com.gunder.market.component.MainTopBar
+import com.gunder.market.component.MainTopCategory
 import com.gunder.market.component.TopMenu
+import com.gunder.market.model.dummyListBanner
+import com.gunder.market.model.dummyListBottomCategory
+import com.gunder.market.model.dummyListTopCategory
 import com.gunder.market.model.dummyListTopMenus
 import com.gunder.market.ui.theme.MarketTheme
 
@@ -46,8 +52,48 @@ fun MarketApp(modifier: Modifier = Modifier) {
 //        your code compose here
         MainTopBar()
         MainTopMenu()
+        MainCategoryTop()
+        MainCategoryCard()
+        MainCategoryBottom()
     }
 }
+
+
+@Composable
+fun MainCategoryCard() {
+    LazyRow {
+        items(dummyListBanner) {
+            MainCardCategory(listBanner = it)
+        }
+    }
+}
+
+@Composable
+fun MainCategoryTop() {
+    LazyRow {
+        items(dummyListTopCategory) {
+            MainTopCategory(listTopCategory = it)
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainCategoryTopPreview() {
+    MarketTheme {
+        MainCategoryTop()
+    }
+}
+
+@Composable
+fun MainCategoryBottom() {
+    LazyRow {
+        items(dummyListBottomCategory) {
+            MainBottomCategory(listBottomCategory = it)
+        }
+    }
+}
+
 
 @Composable
 fun MainTopMenu() {
