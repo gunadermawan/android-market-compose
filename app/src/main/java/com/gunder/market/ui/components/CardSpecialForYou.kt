@@ -25,7 +25,6 @@ fun CardSpecialForYou(listCardForYou: ListCardForYou, modifier: Modifier = Modif
         Image(
             painter = painterResource(id = listCardForYou.imgCard),
             contentDescription = listCardForYou.txtDesc.toString(),
-            modifier = modifier.heightIn(min = 180.dp)
         )
     }
 }
