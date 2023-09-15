@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.gunder.market.component.MainBottomCategory
 import com.gunder.market.component.MainCardCategory
+import com.gunder.market.component.MainImageCategory
 import com.gunder.market.component.MainTopBar
 import com.gunder.market.component.MainTopCategory
 import com.gunder.market.component.TopMenu
@@ -55,6 +56,7 @@ fun MarketApp(modifier: Modifier = Modifier) {
         MainCategoryTop()
         MainCategoryCard()
         MainCategoryBottom()
+        MainImageCategory()
     }
 }
 
