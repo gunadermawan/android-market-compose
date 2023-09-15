@@ -19,9 +19,7 @@ import com.gunder.market.ui.theme.MarketTheme
 @Composable
 fun CardSpecialForYou(listCardForYou: ListCardForYou, modifier: Modifier = Modifier) {
     Card(
-        modifier = modifier
-            .width(IntrinsicSize.Max)
-            .height(IntrinsicSize.Max),
+        modifier = modifier,
         RoundedCornerShape(8.dp)
     ) {
         Image(

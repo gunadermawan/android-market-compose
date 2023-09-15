@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,17 +25,18 @@ import com.gunder.market.ui.theme.MarketTheme
 @Composable
 fun CardSpecialOffer(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier.padding(16.dp),
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
             modifier = modifier.height(IntrinsicSize.Min),
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Card(
-                modifier = modifier
-                    .padding(8.dp),
+                modifier = modifier,
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Transparent)
             ) {
@@ -45,37 +47,36 @@ fun CardSpecialOffer(modifier: Modifier = Modifier) {
                 )
             }
             Card(
-                modifier = modifier
-                    .padding(8.dp),
+                modifier = modifier,
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Transparent)
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.banner_horizontal_2),
                     contentDescription = null,
-                    contentScale = ContentScale.Fit
+                    contentScale = ContentScale.FillWidth
                 )
             }
         }
         Row(
             modifier = modifier.height(IntrinsicSize.Min),
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Card(
                 modifier = modifier
-                    .padding(8.dp),
+                    .padding(top = 8.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Transparent)
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.banner_horizontal_3),
                     contentDescription = null,
-                    contentScale = ContentScale.Fit
+                    contentScale = ContentScale.FillWidth
                 )
             }
             Card(
                 modifier = modifier
-                    .padding(8.dp),
+                    .padding(top = 8.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Transparent)
             ) {
