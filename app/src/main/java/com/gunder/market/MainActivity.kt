@@ -5,16 +5,20 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import com.gunder.market.component.BottomBar
 import com.gunder.market.component.MainBannerVertical
 import com.gunder.market.component.MainBottomCategory
 import com.gunder.market.component.MainCardCategory
@@ -46,21 +50,26 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MarketApp(modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier
-            .verticalScroll(rememberScrollState())
-    ) {
+    Scaffold(bottomBar = { BottomBar() }) { paddingValues ->
+        Column(
+            modifier = modifier
+                .verticalScroll(rememberScrollState())
+                .padding(paddingValues)
+        ) {
 //        your code compose here
-        MainTopBar()
-        MainTopMenu()
-        MainCategoryTop()
-        MainCategoryCard()
-        MainCategoryBottom()
-        MainImageCategory()
-        MainVerticalBanner()
+            MainTopBar()
+            MainTopMenu()
+            MainCategoryTop()
+            MainCategoryCard()
+            MainCategoryBottom()
+            MainImageCategory()
+            MainVerticalBanner()
+        }
     }
+
 }
 
 
