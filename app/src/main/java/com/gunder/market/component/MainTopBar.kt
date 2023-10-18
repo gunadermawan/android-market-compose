@@ -21,6 +21,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -34,6 +38,9 @@ import com.gunder.market.ui.theme.MarketTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainTopBar(modifier: Modifier = Modifier) {
+    var name by remember {
+        mutableStateOf("")
+    }
     Column(modifier = modifier.padding(16.dp)) {
         Row(
             modifier = modifier.width(IntrinsicSize.Min),
@@ -43,8 +50,10 @@ fun MainTopBar(modifier: Modifier = Modifier) {
             OutlinedTextField(
                 modifier = modifier
                     .widthIn(min = 220.dp),
-                value = "",
-                onValueChange = {},
+                value = name,
+                onValueChange = { newName ->
+                    name = newName
+                },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Outlined.Search,
