@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
@@ -24,12 +25,15 @@ import com.gunder.market.model.dummyListBottomCategory
 import com.gunder.market.model.dummyListCardForYou
 import com.gunder.market.model.dummyListTopCategory
 import com.gunder.market.model.dummyListTopMenus
+import com.gunder.market.state.rememberMarketState
 import com.gunder.market.ui.theme.MarketTheme
 
 @Composable
 fun MarketApp(modifier: Modifier = Modifier) {
+    val marketState = rememberMarketState()
     Scaffold(
-        topBar = { MainTopBar(onMenuClick = {}) },
+        snackbarHost = { SnackbarHost(marketState.snackBarHostState) },
+        topBar = { MainTopBar(onMenuClick = { marketState.snackBarHostState }) },
         bottomBar = { BottomBar() })
     { paddingValues ->
         Column(
