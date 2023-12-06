@@ -1,4 +1,4 @@
-package com.gunder.market.ui.components
+package com.gunder.market.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.heightIn
@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -17,14 +16,13 @@ import com.gunder.market.model.ListBanner
 import com.gunder.market.ui.theme.MarketTheme
 
 @Composable
-fun CardBanner(listBanner: ListBanner, modifier: Modifier = Modifier) {
+fun MainCardCategory(modifier: Modifier = Modifier, listBanner: ListBanner) {
     Card(
         modifier = modifier
             .widthIn(200.dp)
-            .padding(start = 16.dp, end = 8.dp)
+            .padding(16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
             .heightIn(48.dp),
-        shape = RoundedCornerShape(8.dp),
-        colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.White)
+        shape = RoundedCornerShape(8.dp)
     ) {
         Image(
             painter = painterResource(id = listBanner.imgBanner),
@@ -35,8 +33,8 @@ fun CardBanner(listBanner: ListBanner, modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-fun CardBannerPreview() {
+fun MainCardCategoryPreview() {
     MarketTheme {
-        CardBanner(listBanner = ListBanner(R.drawable.banner1))
+        MainCardCategory(listBanner = ListBanner(R.drawable.banner1))
     }
 }
